@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cornell RL Reading Group</title>
+  <meta name="description" content="Cornell's reinforcement learning and interactive learning paper reading group.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+
+    <nav>
+      <div class="branding">
+        <img src="assets/cuai.png" alt="CUAI" class="logo">
+        <span class="brand-text">CUAI</span>
+      </div>
+      <div class="links">
+        <a href="index.html" class="active">Home</a>
+        <a href="syllabus.html">Syllabus</a>
+      </div>
+    </nav>
+
+    <header>
+      <h1>Cornell RL Reading Group</h1>
+      <div class="course-info">  Summer 2026 · Weekly meetings TBH · Zoom link · <a href="#">Meeting Recordings</a>, <a href="#">Scribe Notes</a></div>
+    </header>
+
+    <section id="about">
+      <p class="subtitle">
+        Reinforcement learning is driving some of the most important capabilities in modern frontier AI models: reasoning breakthroughs in frontier LLMs, the alignment of generative models, and the emergence of capable embodied agents. What does this mean for how we design learning algorithms? Which theoretical foundations explain the empirical successes of post-training at scale?
+      </p>
+      <br>
+      <p class="subtitle">
+        In this reading group, we take a serious look at the algorithmic frontier of RL and how it reshapes the modern AI stack. Starting from entropy-based online methods and no-regret learning, we build up through sequential decision making to the post-training algorithms powering today's frontier models.
+      </p>
+    </section>
+
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news-list" id="news-list"></ul>
+    </section>
+
+
+    <section id="schedule">
+      <h2>Schedule <span class="muted">(tentative)</span></h2>
+      <table class="schedule">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Reading</th>
+            <th>Presenter</th>
+            <th>Materials</th>
+          </tr>
+        </thead>
+        <tbody id="schedule-body"></tbody>
+      </table>
+    </section>
+
+    <footer>
+        Questions or paper suggestions? Reach out via the
+          <a href="https://cuai.github.io/" target="_blank" rel="noopener">CUAI</a> mailing list
+          or open an issue on the
+          <a href="https://github.com/xikronz/awesome-rl-reading-group" target="_blank" rel="noopener">GitHub repository</a>.
+      
+      <br></br>
+          Cornell RL Seminar &middot; Cornell University
+    </footer>
+
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    function el(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text != null) node.textContent = text;
+      return node;
+    }
+
+    function link(href, text, newTab) {
+      const a = el("a", null, text);
+      a.href = href;
+      if (newTab) { a.target = "_blank"; a.rel = "noopener"; }
+      return a;
+    }
+
+    // News
+    const newsList = document.getElementById("news-list");
+    NEWS.forEach(function (item) {
+      const li = el("li");
+      li.appendChild(el("span", "date", item.date));
+      li.appendChild(el("span", null, item.text));
+      newsList.appendChild(li);
+    });
+
+    // Schedule
+    const body = document.getElementById("schedule-body");
+    SCHEDULE.forEach(function (item) {
+      const tr = el("tr");
+
+      tr.appendChild(el("td", "date", item.date));
+
+      const reading = el("td");
+      reading.appendChild(el("div", "topic", item.topic || "TBD"));
+      const paper = el("div", "paper");
+      if (item.paper && item.paperUrl) {
+        paper.appendChild(link(item.paperUrl, item.paper, true));
+      } else if (item.paper) {
+        paper.textContent = item.paper;
+      } else {
+        paper.appendChild(el("span", "tbd", "Paper TBD"));
+      }
+      reading.appendChild(paper);
+      tr.appendChild(reading);
+
+      const presenter = el("td", "presenter");
+      if (item.presenter && item.presenter !== "TBD") {
+        presenter.textContent = item.presenter;
+      } else {
+        presenter.appendChild(el("span", "tbd", "TBD"));
+      }
+      tr.appendChild(presenter);
+
+      const materials = el("td", "materials");
+      if (item.slides) {
+        materials.appendChild(link(item.slides, "Slides", true));
+      } else {
+        materials.appendChild(el("span", "tbd", "—"));
+      }
+      tr.appendChild(materials);
+
+      body.appendChild(tr);
+    });
+  </script>
+</body>
+</html>

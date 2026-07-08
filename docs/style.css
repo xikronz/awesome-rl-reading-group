@@ -1,0 +1,296 @@
+/* Cornell RL Seminar — macOS-flavored, box-free course-page style */
+
+:root {
+  --text: #1d1d1f;          /* Apple near-black */
+  --text-secondary: #6e6e73; /* Apple secondary gray */
+  --link: #0066cc;           /* Apple link blue */
+  --hairline: #d2d2d7;       /* Apple hairline gray */
+  --bg: #ffffff;
+  --accent-red: #ff5f57;     /* macOS traffic lights */
+  --accent-yellow: #febc2e;
+  --accent-green: #28c840;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.page {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 24px 96px;
+}
+
+/* ---------- Nav ---------- */
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--hairline);
+  font-size: 14px;
+}
+
+nav .branding {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav .logo {
+  height: 22px;
+  width: auto;
+}
+
+nav .cornell-logo {
+  height: 20px;
+}
+
+nav .brand-text {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+nav .links {
+  margin-left: auto;
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  color: var(--text);
+}
+
+nav a:hover {
+  color: var(--link);
+  text-decoration: none;
+}
+
+nav a.active {
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+/* ---------- Header ---------- */
+
+header {
+  padding: 64px 0 20px;
+}
+
+header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+header .course-info {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+header .course-info a {
+  color: var(--link);
+}
+
+header .subtitle {
+  margin-top: 12px;
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+/* ---------- Sections ---------- */
+
+section {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+section#news {
+  margin-top: 48px;
+}
+
+section#schedule {
+  margin-top: 48px;
+}
+
+section h2 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+section h2 .muted {
+  font-weight: 400;
+  color: var(--text-secondary);
+  font-size: 19px;
+}
+
+/* ---------- News ---------- */
+
+.news-list {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.news-list li {
+  display: flex;
+  gap: 0;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.news-list li:last-child {
+  border-bottom: none;
+}
+
+.news-list .date {
+  flex: 0 0 100px;
+  padding-right: 12px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  padding-top: 2px;
+}
+
+/* ---------- Schedule ---------- */
+
+.schedule {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.schedule th {
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  padding: 14px 16px 10px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.schedule td {
+  vertical-align: top;
+  padding: 16px 16px 16px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.schedule tr:last-child td {
+  border-bottom: none;
+}
+
+.schedule .date {
+  white-space: nowrap;
+  color: var(--text-secondary);
+  font-size: 13px;
+  width: 120px;
+  padding-right: 24px;
+  padding-top: 18px;
+}
+
+.schedule .topic {
+  font-weight: 600;
+}
+
+.schedule .paper {
+  margin-top: 2px;
+  font-size: 15px;
+}
+
+.schedule .presenter {
+  white-space: nowrap;
+  font-size: 15px;
+  width: 130px;
+}
+
+.schedule .materials {
+  white-space: nowrap;
+  font-size: 15px;
+  width: 90px;
+}
+
+.tbd {
+  color: var(--text-secondary);
+}
+
+/* ---------- Syllabus page ---------- */
+
+.prose h2 {
+  margin-top: 56px;
+}
+
+.prose p,
+.prose ul,
+.prose ol {
+  margin-top: 16px;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 24px;
+}
+
+.prose li {
+  margin-top: 6px;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 640px) {
+  header h1 {
+    font-size: 34px;
+  }
+
+  .news-list li {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .schedule .presenter,
+  .schedule th:nth-child(3) {
+    display: none;
+  }
+}
