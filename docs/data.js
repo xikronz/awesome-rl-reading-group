@@ -17,18 +17,19 @@ const NEWS = [
     text: "We're opening up this reading group to the RL/ML community!! If you're interested in the algorithmic foundations of RL and want to go deeper than skimming abstracts come join us, all backgrounds welcome :)",
   },
   {
-    date: "Jul 1, 2026",
-    text: "First meeting of the summer will be announced soon... Sign up for the mailing list here to get updates!!",
+    date: "Jul 3, 2026",
+    text: "Super excited to launch this, first meeting of the summer will be announced soon. 🎉 Sign up for our mailing list to get updates!!",
   },
 ];
 
 const SCHEDULE = [
   {
-    date: "Jul xx, 2026",
-    topic: "Foundations: Online learning",
-    paper: "TBD",
-    paperUrl: "TBD",
+    date: "Jul XX, 2026",
+    topic: "Foundations: Online learning, MaxEnt",
+    paper: "Follow the Regularized Leader",
+    paperUrl: "https://proceedings.mlr.press/v15/mcmahan11b/mcmahan11b.pdf",
     presenter: "Carrie Chen",
     slides: null, // e.g. "slides/2026-09-04-dqn.pdf"
   },
+
 ];
