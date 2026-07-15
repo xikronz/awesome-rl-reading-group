@@ -23,7 +23,7 @@
 
     <header>
       <h1>Cornell RL Reading Group</h1>
-      <div class="course-info">  Summer 2026 · Saturdays @ 3:00 p.m. EST · <a href="https://cornell.zoom.us/j/2545582605?pwd=TibHaw9LePD2cbEvryckasQiGbU2ri.1">Zoom Link</a> · <a href="#">Meeting Recordings</a> · <a href="#">Scribe Notes</a></div>
+      <div class="course-info">  Saturdays @ 3:00 p.m. EST · <a href="https://cornell.zoom.us/j/2545582605?pwd=TibHaw9LePD2cbEvryckasQiGbU2ri.1">Zoom Link</a> · <a href="https://join.slack.com/t/cornellrlseminar/shared_invite/zt-43x9ef8m9-VK3b_cf0WqOkXGeENpzQWA">Slack</a> · <a href="#">Meeting Recordings</a> · <a href="#">Scribe Notes</a></div>
     </header>
 
     <section id="about">
@@ -36,7 +36,7 @@
       </p>
       <br>
       <p class="subtitle">
-        Interested in joining? Sign up to our <a href="https://groups.google.com/u/4/g/cornell-rl-seminar">Mailing List</a> to reserve a spot and add your availability to our <a href="https://timeful.app/e/a8d6c" >timeful</a> so we can optimize the schedule!
+        Interested in joining? Sign up to our <a href="https://groups.google.com/u/4/g/cornell-rl-seminar">Mailing List</a> to reserve a spot and join our slack to be part of our discussions!
       </p>
     </section>
 
@@ -127,9 +127,13 @@
       tr.appendChild(presenter);
 
       const materials = el("td", "materials");
-      if (item.slides) {
-        materials.appendChild(link(item.slides, "Slides", true));
-      } else {
+      const names = (item.materials && item.materials.names) || [];
+      const links = (item.materials && item.materials.links) || [];
+      names.forEach(function (name, i) {
+        if (!links[i]) return;
+        materials.appendChild(link(links[i], name, true));
+      });
+      if (!materials.childNodes.length) {
         materials.appendChild(el("span", "tbd", "—"));
       }
       tr.appendChild(materials);

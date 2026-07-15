@@ -239,9 +239,19 @@ section h2 .muted {
 }
 
 .schedule .materials {
-  white-space: nowrap;
   font-size: 15px;
-  width: 90px;
+  width: 180px;
+  min-width: 50px;
+}
+
+.schedule .materials a {
+  display: inline-block;
+  white-space: nowrap;
+  margin-right: 5px;
+}
+
+.schedule .materials a:last-child {
+  margin-right: 0;
 }
 
 .tbd {

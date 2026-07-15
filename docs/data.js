@@ -5,8 +5,10 @@
  *
  *  - To post an announcement: add an entry to the top of NEWS.
  *  - To add/update a reading: add or edit an entry in SCHEDULE.
- *  - Put slide files in the  slides/  folder and reference them
- *    like  "slides/2026-09-04-dqn.pdf".
+ *  - materials takes two parallel lists: names[i] is the link text
+ *    for links[i]. Put anything there — slides, notes, extra papers,
+ *    recordings. Put slide files in the  slides/  folder and reference
+ *    them like  "slides/2026-09-04-dqn.pdf".
  *  - Leave a field as null (or omit it) if you don't have it yet —
  *    the site renders "TBD" automatically.
  * ============================================================ */
@@ -14,7 +16,7 @@
 const NEWS = [
   {
     date: "Jul 11, 2026",
-    text: "Seminars will be held weekly on Saturdays at 3:00 p.m. Can’t make it live? Recordings and materials will be released publicly every Sunday at 4:00 p.m. 😸",
+    text: "Seminars will be held weekly on Saturdays at 3:00 p.m. If you can't make it live, recordings and materials will be released publicly every Sunday at 4:00 p.m. 😸",
   },
   {
     date: "Jul 8, 2026",
@@ -28,12 +30,19 @@ const NEWS = [
 
 const SCHEDULE = [
   {
-    date: "Jul 18, 2026",
-    topic: "Foundations: Online learning, MaxEnt",
+    date: "Jul 19, 2026",
+    topic: "Foundations: Online learning, MaxEnt, FTRL",
     paper: "Follow the Regularized Leader",
     paperUrl: "https://proceedings.mlr.press/v15/mcmahan11b/mcmahan11b.pdf",
     presenter: "Carrie Chen",
-    slides: null, // e.g. "slides/2026-09-04-dqn.pdf"
+    materials: {
+      names: ["MaxEnt ·", "CMU notes ·", "What is Entropy?"],
+      links: [
+        "https://www.cs.princeton.edu/courses/archive/spr07/cos424/papers/maxent_icml.pdf",
+        "https://www.cs.cmu.edu/~16831-f14/notes/F10/16831_lecture09_beckart/16831_lecture09_beckart.pdf",
+        "https://www.quantamagazine.org/what-is-entropy-a-measure-of-just-how-little-we-really-know-20241213/"
+      ],
+    },
   },
 
 ];
